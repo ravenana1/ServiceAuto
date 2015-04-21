@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 public class MainApp{
 	
     public static void main( String[] args ){
+        System.out.println("hello");
        /* try{
             Class.forName("com.mysql.jdbc.Driver");
         }catch (ClassNotFoundException e) {
