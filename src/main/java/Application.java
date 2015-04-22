@@ -1,5 +1,3 @@
-package service;
-
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -15,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 public class Application extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(
-       SpringApplicationBuilder application) {
+            SpringApplicationBuilder application) {
 
-       return application.web(true).sources(Application.class);
+        return application.web(true).sources(Application.class);
     }
 }
