@@ -48,24 +48,28 @@ public class ServiceAutoController {
         ResultSet result = null;
         ResultSet urm = null;
         try {
-                        result = statement.executeQuery(sql);
+            result = statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        String currentType = "";
+
         List<Operation> operationsByType = new ArrayList<>();
         HashMap<String, List<Operation>> operations = new HashMap<>();
         try {
+            String currentType = result.getString("Type");
+            String nextType = result.getString("Type");
             while (result.next()) {
 
-                if(result.getString("Type") == result.getString("Type")){
+                if(currentType == nextType){
                     operationsByType.add(new Operation(result.getString("Name"), result.getString("Time")));
                 }
                 else{
                     operations.put(result.getString("Type"), operationsByType);
                     operationsByType = new ArrayList<>();
+                    currentType = nextType;
                 }
+                nextType = result.getString("Type");
             }
         } catch (SQLException e) {
             e.printStackTrace();
