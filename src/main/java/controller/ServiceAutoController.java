@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import api.CarState;
 import api.Operation;
@@ -132,14 +133,16 @@ public class ServiceAutoController {
     public CarState getCarState(@RequestParam(value = "registrationID") String registrationID) {
         return new CarState();
     }
-
+    //TODO verify if the params are correct
     @RequestMapping(method = RequestMethod.PUT, value = "/registerCar")
     public Integer registerCar(@RequestParam(value = "firstname") String firstname,
                                 @RequestParam(value = "lastname") String lastname,
+                                @RequestParam(value = "carSerial") String carSerial,
                                 @RequestParam(value = "carBrand") String carBrand,
                                 @RequestParam(value = "carModel") String carModel,
                                 @RequestParam(value = "objective") String objective,
                                 @RequestParam(value = "date") String date) {
+
         int registrationID = 0;
         Statement statement = null;
         try {
@@ -156,22 +159,47 @@ public class ServiceAutoController {
         }
 
         sql = "SELECT id FROM Clients WHERE FirstName = " + firstname + " and LastName = " + lastname + ";";
-        int id;
+        int idClient = -1;
         ResultSet result = null;
         try {
             result = statement.executeQuery(sql);
-
             if(result.next()){
-                id = result.getInt("id");
+                idClient = result.getInt("id");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        sql = "INSERT INTO Cars (CarSerial, Brand, Model, fk_Client) " +
+                "VALUES(" + carSerial + ", " + carBrand + ", " + carModel + ", " + idClient + ");";
+        try{
+            statement.execute(sql);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
 
+        int idCar = -1;
+        sql = "SELECT id FROM Cars WHERE CarSerial = " + carSerial + ";";
+        try {
+            result = statement.executeQuery(sql);
+            if(result.next()){
+                idCar = result.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        sql = "INSERT INTO Registration (Objective, Date, fk_Masina) " +
+                "VALUES(" + objective + ", " + date + ", " + idCar + ");";
+        try{
+            statement.execute(sql);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
 
-
+        //TODO verify if regID exists in the table Registration before giving a redID
+        Random r = new Random();
+        registrationID = r.nextInt();
 
         return registrationID;
     }
