@@ -9,17 +9,17 @@ import java.util.List;
  */
 public class ServicesOffered {
     //lista tututor serviciilor (primeste tipul si lista serviciilor de acel tip)
-    private HashMap<String, List> servicesByType;
+    private HashMap<String, List<Operation>> servicesByType;
 
     public ServicesOffered(){
-        this.servicesByType = new HashMap<String, List>();
+        this.servicesByType = new HashMap<String, List<Operation>>();
     }
 
-    public ServicesOffered(HashMap<String, List> servicesByType) {
+    public ServicesOffered(HashMap<String, List<Operation>> servicesByType) {
         this.servicesByType = servicesByType;
     }
 
-    public HashMap<String, List> getServicesByType() {
+    public HashMap<String, List<Operation>> getServicesByType() {
         return servicesByType;
     }
 }

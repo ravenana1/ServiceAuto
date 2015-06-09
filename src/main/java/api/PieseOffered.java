@@ -8,17 +8,17 @@ import java.util.List;
  */
 public class PieseOffered {
     //lista tututor pieselor (primeste tipul si lista pieselor de acel tip)
-    private HashMap<String, List> servicesByType;
+    private HashMap<String, List<String>> servicesByType;
 
     public PieseOffered() {
     }
 
 
-    public PieseOffered(HashMap<String, List> servicesByType) {
+    public PieseOffered(HashMap<String, List<String>> servicesByType) {
         this.servicesByType = servicesByType;
     }
 
-    public HashMap<String, List> getServicesByType() {
+    public HashMap<String, List<String>> getServicesByType() {
         return servicesByType;
     }
 }

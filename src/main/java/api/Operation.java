@@ -23,5 +23,9 @@ public class Operation{
         return time;
     }
 
+    public String toString(){
+        return name + " " + time;
+    }
+
 
 }

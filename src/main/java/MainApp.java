@@ -1,12 +1,18 @@
+import java.beans.*;
 import java.sql.*;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import api.Operation;
 import org.springframework.boot.SpringApplication;
 
 public class MainApp{
 	
     public static void main( String[] args ){
         System.out.println("hello");
-      /*  try{
+        try{
             Class.forName("com.mysql.jdbc.Driver");
         }catch (ClassNotFoundException e) {
             System.out.println("Where is your MySQL JDBC Driver?");
@@ -29,35 +35,51 @@ public class MainApp{
             System.out.println("Failed to make connection!");
         }
 
-        Statement stmt = null;
+        Statement statement = null;
         try {
-            stmt = connection.createStatement();
+            statement = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String sql;
-        sql = "INSERT into Piese (Type, Name) VALUES ('bau', 'baubau');";
-        ResultSet rs = null;
+        sql = "SELECT Type, Name FROM Piese ORDER BY Type;";
+        ResultSet result = null;
         try {
-            stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        sql = "SELECT id, Type, Name from Piese;";
-        try {
-            rs = stmt.executeQuery(sql);
+            result = statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        String currentType = "";
+        String nextType;
+        List<String> pieseByType = new ArrayList<>();
+        HashMap<String, List<String>> piese = new HashMap<>();
         try {
-            while (rs.next()) {
-                System.out.println(rs.getString("Type"));
-                System.out.println(rs.getString("Name"));
+            if(result.next()) {
+                currentType = result.getString("Type");
+                pieseByType.add(result.getString("Name"));
+            }
+            while (result.next()) {
+                nextType = result.getString("Type");
+                if(currentType.equals(nextType)){
+                    pieseByType.add(result.getString("Name"));
+                }
+                else{
+                    piese.put(currentType, pieseByType);
+                    pieseByType = new ArrayList<>();
+                    pieseByType.add(result.getString("Name"));
+                    currentType = nextType;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-*/
+        piese.put(currentType, pieseByType);
+
+        System.out.println(piese);
+
+
+
+
     }
 }
