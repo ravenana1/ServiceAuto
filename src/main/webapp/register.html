@@ -25,6 +25,7 @@
 					firstName: $("#firstName").val(),
 					lastName: $("#lastName").val(),
 					phone: $("#phone").val(),
+					carSerial: $("#carSerial").val(),
 					carBrand: $("#carBrand").val(),
 					carModel: $("#carModel").val(),
 					date: $("#date").val(),
@@ -32,8 +33,8 @@
 			};
 			console.log($("#firstName").val() + '------------');
 			
-			req.open("POST","/server.php",false);
-			req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			req.open("POST","/ServiceAuto/registerCar",false);
+			req.setRequestHeader("Content-type","application/json");
 			req.send("registerData=" + JSON.stringify(registerData));
 			var rez = JSON.parse(req.responseText)
 			console.log(rez);
@@ -84,6 +85,9 @@
             </label>
             <label>
               <input type="text" id="phone" value="PHONE" onBlur="if(this.value=='') this.value='PHONE'" onFocus="if(this.value =='PHONE' ) this.value=''">
+            </label>
+            <label>
+              <input type="text" id="carSerial" value="CAR SERIAL NUMBER" onBlur="if(this.value=='') this.value='CAR SERIAL NUMBER'" onFocus="if(this.value =='CAR SERIAL NUMBER' ) this.value=''">
             </label>
             <label>
               <input type="text" id="carBrand" value="CAR BRAND" onBlur="if(this.value=='') this.value='CAR BRAND'" onFocus="if(this.value =='CAR BRAND' ) this.value=''">

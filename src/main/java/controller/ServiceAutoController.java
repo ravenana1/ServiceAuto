@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,19 +9,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
-import api.CarState;
-import api.Operation;
-import api.PieseOffered;
-import api.ServicesOffered;
+import api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 public class ServiceAutoController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ServiceAutoController.class);
+    private ArrayList<Integer> allRegIDs = new ArrayList<Integer>();
 
     @Autowired
     private Connection connection;
@@ -134,15 +136,9 @@ public class ServiceAutoController {
         return new CarState();
     }
     //TODO verify if the params are correct
-    @RequestMapping(method = RequestMethod.PUT, value = "/registerCar")
-    public Integer registerCar(@RequestParam(value = "firstname") String firstname,
-                                @RequestParam(value = "lastname") String lastname,
-                                @RequestParam(value = "phone") String phone,
-                                @RequestParam(value = "carSerial") String carSerial,
-                                @RequestParam(value = "carBrand") String carBrand,
-                                @RequestParam(value = "carModel") String carModel,
-                                @RequestParam(value = "objective") String objective,
-                                @RequestParam(value = "date") String date) {
+    @RequestMapping(method = RequestMethod.POST, value = "/registerCar")
+    @ResponseBody
+    public Integer registerCar(@RequestBody Registration registration) {
 
         int registrationID = 0;
         Statement statement = null;
@@ -151,15 +147,18 @@ public class ServiceAutoController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        LOG.error("------------" + registration.toString());
 
-        String sql = "INSERT INTO Clients (FirstName, LastName) VALUES (" + firstname + ", " + lastname + ");";
+        String sql = "INSERT INTO Clienti (FirstName, LastName) VALUES (" + registration.getFirstName()
+                + ", " + registration.getLastName() + ");";
         try{
             statement.execute(sql);
         }catch(SQLException e){
             e.printStackTrace();
         }
 
-        sql = "SELECT id FROM Clients WHERE FirstName = " + firstname + " and LastName = " + lastname + ";";
+        sql = "SELECT id FROM Clienti WHERE FirstName = " + registration.getFirstName()
+                + " and LastName = " + registration.getLastName() + ";";
         int idClient = -1;
         ResultSet result = null;
         try {
@@ -171,8 +170,9 @@ public class ServiceAutoController {
             e.printStackTrace();
         }
 
-        sql = "INSERT INTO Cars (CarSerial, Brand, Model, fk_Client) " +
-                "VALUES(" + carSerial + ", " + carBrand + ", " + carModel + ", " + idClient + ");";
+        sql = "INSERT INTO Masini (SerieMasina, Brand, Model, fk_Client) " +
+                "VALUES(" + registration.getCarSerial() + ", " + registration.getCarBrand() + ", " +
+                registration.getCarModel() + ", " + idClient + ");";
         try{
             statement.execute(sql);
         }catch(SQLException e){
@@ -180,7 +180,7 @@ public class ServiceAutoController {
         }
 
         int idCar = -1;
-        sql = "SELECT id FROM Cars WHERE CarSerial = " + carSerial + ";";
+        sql = "SELECT id FROM Masini WHERE  = " + registration.getCarSerial() + ";";
         try {
             result = statement.executeQuery(sql);
             if(result.next()){
@@ -190,17 +190,23 @@ public class ServiceAutoController {
             e.printStackTrace();
         }
 
-        sql = "INSERT INTO Registration (Objective, Date, fk_Masina) " +
-                "VALUES(" + objective + ", " + date + ", " + idCar + ");";
+        Random r = new Random();
+        registrationID = r.nextInt();
+
+        while(!allRegIDs.contains(registrationID)){
+            registrationID = r.nextInt();
+        }
+        allRegIDs.add(registrationID);
+
+
+        sql = "INSERT INTO Registration (registrationID, Date, Objective, fk_Masina) " +
+                "VALUES(" + registrationID + ", " + registration.getDate() + ", " + registration.getDate()
+                        + ", " + registration.getObjective() + ", " + idCar + ");";
         try{
             statement.execute(sql);
         }catch(SQLException e){
             e.printStackTrace();
         }
-
-        //TODO verify if regID exists in the table Registration before giving a redID
-        Random r = new Random();
-        registrationID = r.nextInt();
 
         return registrationID;
     }
