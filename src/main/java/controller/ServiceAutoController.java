@@ -91,6 +91,7 @@ public class ServiceAutoController {
     @RequestMapping(method = RequestMethod.PUT, value = "/registerCar")
     public Integer registerCar(@RequestParam(value = "firstname") String firstname,
                                 @RequestParam(value = "lastname") String lastname,
+                                @RequestParam(value = "phone") String phone,
                                 @RequestParam(value = "carBrand") String carBrand,
                                 @RequestParam(value = "carModel") String carModel,
                                 @RequestParam(value = "objective") String objective,
