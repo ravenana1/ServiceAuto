@@ -36,7 +36,20 @@ public class MainApp{
         }
 
         Statement statement = null;
+
         try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql = "INSERT INTO Clienti (FirstName, LastName) VALUES ('bubu', 'lulu');";
+        try{
+            statement.execute(sql);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        /*try {
             statement = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +91,7 @@ public class MainApp{
 
         System.out.println(piese);
 
-
+        */
 
 
     }

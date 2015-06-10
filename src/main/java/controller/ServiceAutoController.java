@@ -132,10 +132,26 @@ public class ServiceAutoController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/statusMasina")
+    @ResponseBody
     public CarState getCarState(@RequestParam(value = "registrationID") String registrationID) {
-        return new CarState();
+        Statement statement = null;
+
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql = "INSERT INTO Clienti (FirstName, LastName) VALUES ('bubu', 'lulu');";
+        try{
+            statement.execute(sql);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return new CarState("masina", "masina", null);
     }
-    //TODO verify if the params are correct
+
     @RequestMapping(method = RequestMethod.POST, value = "/registerCar")
     @ResponseBody
     public Integer registerCar(@RequestBody Registration registration) {
@@ -147,21 +163,24 @@ public class ServiceAutoController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        LOG.error("------------" + registration.toString());
+        LOG.error("\n------------" + registration.toString());
 
-        String sql = "INSERT INTO Clienti (FirstName, LastName) VALUES (" + registration.getFirstName()
-                + ", " + registration.getLastName() + ");";
+        String sql = "INSERT INTO Clienti (FirstName, LastName, Phone) VALUES ('" + registration.getFirstName()
+                + "', '" + registration.getLastName() + "', '" + registration.getPhone()
+                +"');";
         try{
+           // LOG.error("\n------------Execut");
             statement.execute(sql);
         }catch(SQLException e){
             e.printStackTrace();
         }
 
-        sql = "SELECT id FROM Clienti WHERE FirstName = " + registration.getFirstName()
-                + " and LastName = " + registration.getLastName() + ";";
+        sql = "SELECT id FROM Clienti WHERE FirstName='" + registration.getFirstName()
+                + "' and LastName='" + registration.getLastName() + "';";
         int idClient = -1;
         ResultSet result = null;
         try {
+            LOG.error("\n------------Execut2");
             result = statement.executeQuery(sql);
             if(result.next()){
                 idClient = result.getInt("id");
@@ -170,40 +189,42 @@ public class ServiceAutoController {
             e.printStackTrace();
         }
 
-        sql = "INSERT INTO Masini (SerieMasina, Brand, Model, fk_Client) " +
-                "VALUES(" + registration.getCarSerial() + ", " + registration.getCarBrand() + ", " +
-                registration.getCarModel() + ", " + idClient + ");";
+        LOG.error("\n------------ID CLIENT: " + idClient);
+
+        sql = "INSERT INTO Masini (SerieMasina, Brand, Model, fk_ClientM) " +
+                "VALUES('" + registration.getCarSerial() + "', '" + registration.getCarBrand() + "', '" +
+                registration.getCarModel() + "', " + idClient + ");";
         try{
+            LOG.error("\n------------Execut3");
             statement.execute(sql);
         }catch(SQLException e){
             e.printStackTrace();
         }
 
         int idCar = -1;
-        sql = "SELECT id FROM Masini WHERE  = " + registration.getCarSerial() + ";";
+        sql = "SELECT id FROM Masini WHERE SerieMasina= '" + registration.getCarSerial() + "';";
         try {
             result = statement.executeQuery(sql);
+            LOG.error("\n------------Execut4");
             if(result.next()){
                 idCar = result.getInt("id");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        LOG.error("\n------------ID Masina: " + idCar);
 
         Random r = new Random();
         registrationID = r.nextInt();
 
-        while(!allRegIDs.contains(registrationID)){
-            registrationID = r.nextInt();
-        }
         allRegIDs.add(registrationID);
 
-
-        sql = "INSERT INTO Registration (registrationID, Date, Objective, fk_Masina) " +
-                "VALUES(" + registrationID + ", " + registration.getDate() + ", " + registration.getDate()
-                        + ", " + registration.getObjective() + ", " + idCar + ");";
+        sql = "INSERT INTO Registration (registrationID, StareMasina, Date, Objective, fk_MasinaR) " +
+                "VALUES(" + registrationID + ", 'Just Registered', '"
+                + registration.getDate() + "', '" + registration.getObjective() + "', " + idCar + ");";
         try{
             statement.execute(sql);
+            LOG.error("\n------------Execut5");
         }catch(SQLException e){
             e.printStackTrace();
         }
