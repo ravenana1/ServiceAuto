@@ -133,7 +133,7 @@ public class ServiceAutoController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/statusMasina")
     @ResponseBody
-    public CarState getCarState(@RequestParam(value = "registrationID") String registrationID) {
+    public ArrayList<CarState> getCarState(@RequestParam(value = "registrationID") String registrationID) {
         Statement statement = null;
 
         try {
@@ -142,14 +142,24 @@ public class ServiceAutoController {
             e.printStackTrace();
         }
 
-        String sql = "INSERT INTO Clienti (FirstName, LastName) VALUES ('bubu', 'lulu');";
+        String sql = "SELECT StareMasina, PretEstimat, Date " +
+                    "FROM Registration WHERE registrationID=" + Integer.valueOf(registrationID) + ";";
+        ResultSet result = null;
+        ArrayList<CarState> carStates = new ArrayList<CarState>();
+
         try{
-            statement.execute(sql);
+            result = statement.executeQuery(sql);
+
+            if(result.next()){
+                carStates.add(new CarState(result.getString("StareMasina"),
+                                            result.getString("PretEstimat"),
+                                            result.getString("Date")));
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
 
-        return new CarState("masina", "masina", null);
+        return carStates;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/registerCar")
@@ -215,7 +225,7 @@ public class ServiceAutoController {
         LOG.error("\n------------ID Masina: " + idCar);
 
         Random r = new Random();
-        registrationID = r.nextInt();
+        registrationID = r.nextInt(Integer.MAX_VALUE);
 
         allRegIDs.add(registrationID);
 
@@ -228,8 +238,6 @@ public class ServiceAutoController {
         }catch(SQLException e){
             e.printStackTrace();
         }
-
         return registrationID;
     }
-
 }

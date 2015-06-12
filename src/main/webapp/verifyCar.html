@@ -11,33 +11,36 @@
 <script>
 $(document).ready(function(){
 		$('#button').click(function(){
-			var req;
-			
-			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-					req=new XMLHttpRequest();
-			}
-			else{// code for IE6, IE5
-				req=new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			
-			var registerData = {
-					registerID: $("#registerID").val()
-			};
-			console.log($("#registerID").val() + '------------');
-			
-			req.open("POST","/server.php",false);
-			req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			req.send("registerData=" + JSON.stringify(registerData));
-			var rez = JSON.parse(req.responseText)
-			console.log(rez);
-			
-			$("form").remove();
-			//de adaugat date despre price, stare masina
-			$("#h2").append('<br>');
-			$("#h2").append('<div id="price">'+ rez['price'] +'</div>');
-			
-		});
-	});
+            var regID = $('#registerID').val();
+            $.ajax({
+                url: '/server.php',
+                type: 'GET',
+                data: 'registrationID=' + regID,
+                success: function(data) {
+                    //called when successful
+                    var rez = JSON.parse(data);
+                    $("form").remove();
+                    $("#h2").append('<br>');
+                    $("#h2").append('<div id="registerID">Registration ID: '+ regID +'</div>');
+                    $("#h2").append('<br>');
+                    $("#h2").append('<div id="date">Data Programare: '+ rez[0]['Date'] +'</div>');
+                    $("#h2").append('<br>');
+                    for(var i = 0; i < rez.length; i++){
+                        $("#h2").append('<div id="stareMasina">Stare Masina: '+ rez[i]['StareMasina'] +'</div>');
+                        $("#h2").append('<br>');
+                        if(rez[i]["PretEstimat"] == null){
+                            $("#h2").append('<div id="pretEstimat">Masina tocmai inregistrata. Pretul estimat nu este calculat</div>');
+                        }
+                        else{
+                            $("#h2").append('<div id="pretEstimat">Pret Estimat: '+ rez[i]['PretEstimat'] +'</div>');
+                        }
+                        $("#h2").append('<br>');
+                    }
+                },
+                async: false
+            });
+        });
+});
 
 
 </script>
@@ -67,7 +70,7 @@ $(document).ready(function(){
   <section id="content">
     <div class="sub-page">
       <div class="sub-page-left box-9">
-        <h2>Car Status</h2>
+        <h2 id="h2">Car Status</h2>
         <form id="form" method="post" action="#">
           <fieldset>
             <label>
