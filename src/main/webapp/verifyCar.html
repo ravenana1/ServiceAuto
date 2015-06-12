@@ -13,26 +13,28 @@ $(document).ready(function(){
 		$('#button').click(function(){
             var regID = $('#registerID').val();
             $.ajax({
-                url: '/server.php',
+                url: '/ServiceAuto/statusMasina',
                 type: 'GET',
                 data: 'registrationID=' + regID,
+                dataType: 'json',
                 success: function(data) {
                     //called when successful
-                    var rez = JSON.parse(data);
+                    console.log(data);
+                    var rez = data
                     $("form").remove();
                     $("#h2").append('<br>');
                     $("#h2").append('<div id="registerID">Registration ID: '+ regID +'</div>');
                     $("#h2").append('<br>');
-                    $("#h2").append('<div id="date">Data Programare: '+ rez[0]['Date'] +'</div>');
+                    $("#h2").append('<div id="date">Data Programare: '+ rez[0]['date'] +'</div>');
                     $("#h2").append('<br>');
                     for(var i = 0; i < rez.length; i++){
-                        $("#h2").append('<div id="stareMasina">Stare Masina: '+ rez[i]['StareMasina'] +'</div>');
+                        $("#h2").append('<div id="stareMasina">Stare Masina: '+ rez[i]['carState'] +'</div>');
                         $("#h2").append('<br>');
                         if(rez[i]["PretEstimat"] == null){
                             $("#h2").append('<div id="pretEstimat">Masina tocmai inregistrata. Pretul estimat nu este calculat</div>');
                         }
                         else{
-                            $("#h2").append('<div id="pretEstimat">Pret Estimat: '+ rez[i]['PretEstimat'] +'</div>');
+                            $("#h2").append('<div id="pretEstimat">Pret Estimat: '+ rez[i]['estimatedPrice'] +'</div>');
                         }
                         $("#h2").append('<br>');
                     }

@@ -150,7 +150,7 @@ public class ServiceAutoController {
         try{
             result = statement.executeQuery(sql);
 
-            if(result.next()){
+            while(result.next()){
                 carStates.add(new CarState(result.getString("StareMasina"),
                                             result.getString("PretEstimat"),
                                             result.getString("Date")));
