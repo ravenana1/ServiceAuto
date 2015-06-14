@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Service Auto | Locations</title>
+<title>Car Repair | Locations</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
@@ -96,7 +96,7 @@ $(document).ready(function(){
       </div>
     </div>
   </section>
-  <footer>Service Auto &copy; 2015 | <a href="#">Privacy Policy</a> | Design by: Secui Ana</footer>
+  <footer>Car Repair &copy; 2015 | <a href="#">Privacy Policy</a> | Design by: Secui Ana</footer>
 </div>
 </body>
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Service Auto | Locations</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300' rel='stylesheet' type='text/css'>
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+</head>
+<body>
+<div class="bg">
+  <header>
+    <div class="main wrap">
+      <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+      <p>Soseaua Berceni 11, Sector 4, Bucuresti<span>0725689256</span></p>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html" class="home"><img src="images/home.jpg" alt=""></a></li>
+        <li><a href="about.html">Despre noi</a></li>
+        <li><a href="maintenance.html">Mentenanta</a></li>
+        <li><a href="repair.html">Reparatii</a></li>
+        <li><a href="price-list.html">Preturi</a></li>
+        <li><a href="register.html">Inregistrare Masina</a></li>
+        <li><a href="verifyCar.html">Status Masina</a></li>
+        <li class="current"><a href="locations.html">Contact</a></li>
+      </ul>
+      <div class="clear"></div>
+    </nav>
+  </header>
+  <section id="content">
+    <div class="sub-page">
+      <div class="sub-page-left box-9">
+        <h2>Formular Contact</h2>
+        <form id="form" method="post" action="#">
+          <fieldset>
+            <label>
+              <input type="text" value="Nume" onBlur="if(this.value=='') this.value='Nume'" onFocus="if(this.value =='Nume' ) this.value=''">
+            </label>
+            <label>
+              <input type="text" value="Email" onBlur="if(this.value=='') this.value='Email'" onFocus="if(this.value =='Email' ) this.value=''">
+            </label>
+            <label>
+              <input type="text" value="Telefon" onBlur="if(this.value=='') this.value='Telefon'" onFocus="if(this.value =='Telefon' ) this.value=''">
+            </label>
+            <label>
+              <textarea onBlur="if(this.value==''){this.value='Mesaj'}" onFocus="if(this.value=='Mesaj'){this.value=''}">Mesaj</textarea>
+            </label>
+            <div class="btns"><a href="#" class="button">Sterge</a><a href="#" class="button" onClick="document.getElementById('form').submit()">Trimite</a></div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="sub-page-right">
+        <h2>Locatie</h2>
+        <div class="map">
+          <iframe src="https://www.google.ro/maps/place/%C8%98oseaua+Berceni+11,+Bucure%C8%99ti/@44.3907619,26.1246879,17z/data=!3m1!4b1!4m2!3m1!1s0x40b1fe69a23977c9:0x6abb9a9c5d5a8cc1"></iframe>
+        </div>
+        <dl class="adr">
+          <dt>Soseaua Berceni 11, <br>
+            Bucuresti</dt>
+          <dd><span>Telefon:</span>0725689256</dd>
+          <dd><span>E-mail:</span><a href="#" class="link">service@auto.com</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+ <footer>Car Repair &copy; 2015 | <a href="#">Privacy Policy</a> | Design by: Secui Ana</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Service Auto | Repair</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300' rel='stylesheet' type='text/css'>
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+</head>
+<body>
+<div class="bg">
+  <header>
+    <div class="main wrap">
+      <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+      <p>Soseaua Berceni 11, Sector 4, Bucuresti<span>0725689256</span></p>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html" class="home"><img src="images/home.jpg" alt=""></a></li>
+        <li><a href="about.html">Despre noi</a></li>
+        <li><a href="maintenance.html">Mentenanta</a></li>
+        <li class="current"><a href="repair.html">Reparatii</a></li>
+        <li><a href="price-list.html">Preturi</a></li>
+        <li><a href="register.html">Inregistrare Masina</a></li>
+        <li><a href="verifyCar.html">Status Masina</a></li>
+        <li><a href="locations.html">Contact</a></li>
+      </ul>
+      <div class="clear"></div>
+    </nav>
+  </header>
+  <section id="content">
+    <div class="sub-page">
+      <div class="sub-page-left box-9">
+        <h2 class="top-5 p2">Servicii de reparatii</h2>
+        <p class="upper p5">La service-ul nostru va oferim numeroase servicii pentru repararea automobilului dumneavoastra.</p>
+        <div class="wrap p5"> <img src="images/page4-img1.jpg" alt="" class="img-indent-3">
+          <div class="extra-wrap"> <a href="#" class="link">Servicii Mecanice</a>
+			<p>1. Fluide - schimb ulei si filtre, fluide de racire</p>
+			<p>2. Sistemul de franare - placute si discuri de frana, saboti si cilindrii de frana, cabluri, etrieri</p>
+			<p>3. Elemente de directie - uleiuri,capete de bara, bielete directie, burduf, caseta, pompa servo, rulmenti, articulatii</p>
+			<p>4. Elemente de suspensie - arcuri, amortizoare, flanse, rulmenti sarcina, brate suspensie,si antiruliu, pivoti, bucse</p>
+			<p>5. Sistemul de esapament - tobe, catalizator, sonde lambda, tampoane, turbo-compresor</p>
+			<p>6. Motor - kit curele distributie, kit curele transmisie, injectoare,garnituri , suporti, tampoane</p>
+			<p>7. Cutie de viteze - kit ambreiaj, volanta, articulatii planetare, pompa si cilindru ambreiaj, uleiuri</p>
+			<p>8. Sistem de racire - radiatoare apa, ulei, pompa apa, termostat, furtune, sonde, incalzire/racire habitaclu</p>
+			<p>9. Roti - inlocuiri anvelope, jante, echilibrari.</p>
+          </div>
+        </div>
+        <div class="wrap p5"> <img src="images/page4-img2.jpg" alt="" class="img-indent-3">
+          <div class="extra-wrap"> <a href="#" class="link">Servicii electrice</a>
+            <p>1. Pornire motor - electromotor, contacte</p>
+			<p>2.Sistem incarcare baterie - alternator, releu incarcare, acumulator</p>
+			<p>3. Sistem de iluminare - verificari, inlocuiri, reglaje faruri si auxiliare</p>
+			<p>4. Unitati de control - senzori, relee, intrerupatoare, semnalizare, unitati centrale de comanda</p>
+			<p>5. Climatronic - compresor, radiator, vaporizator, uscator, supape comanda, senzori, electroventilatoare</p>
+			<p>6. Sistem de confort - inchidere centralizata, unitati de comanda usi, geamuri si oglinzi electrice</p>
+          </div>
+        </div>
+		<div class="wrap p5"> <img src="images/page4-img3.jpg" alt="" class="img-indent-3">
+          <div class="extra-wrap"> <a href="#" class="link">Servicii tinichigerie-vopsitorie</a>
+            <p>1. Vopsit piesa</p>
+			<p>2. Vopsit si tinichigerie</p>
+			<p>3. Vopsit plafon</p>
+			<p>4. Retus si tinichigerie</p>
+			<p>5. Vopsire si tinichigerie integrala</p>
+			<p>6. Schimbat culoare cu tinichigerie</p>
+			<p>7. Polish integral</p>
+          </div>
+        </div>
+		<div class="wrap p5"> <img src="images/page4-img4.jpg" alt="" class="img-indent-3">
+          <div class="extra-wrap"> <a href="#" class="link">Revizie</a>
+            <p>1. Revizie ulei si filtre</p>
+			<p>2. Resetare bord</p>
+			<p>3. Schimbat ulei si filtre</p>
+			<p>4. Schimbat antigel</p>
+			<p>5. Schimbat lichid frane</p>
+			<p>6. Schimbat ulei cutie viteze</p>
+			<p>7. Schimbat ulei servodirectie</p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-page-right">
+        <div class="shadow box-8 bot-2">
+          <h2 class="p2">Garantie</h2>
+          <p class="text-3 p2">Servicii cu garantie</p>
+          <p class="upper">Orice defectiune aparuta in perioada de garantie se remediaza GRATUIT (prin repararea sau inlocuirea componentelor defecte) in unitatea noastra. Se asigura desfasurarea programelor de garantie, indiferent de unde au fost achizitionate automobilele.</p>
+          <img src="images/page4-img5.jpg" alt="">
+        </div>
+        <h2 class="p3">Suspension</h2>
+        <p class="upper">Fusce suscipit varius mi. Cum sociis natoque penatibus et ma dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc.</p>
+        <a href="#" class="button-2 top-4">Citeste mai mult</a> </div>
+    </div>
+  </section>
+  <footer>Service Auto &copy; 2015 | <a href="#">Privacy Policy</a> | Design by: Secui Ana</footer>
+</div>
+</body>
+</html>
