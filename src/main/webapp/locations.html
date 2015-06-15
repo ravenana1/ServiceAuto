@@ -5,9 +5,23 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
 <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300" rel="stylesheet" type="text/css">
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="js/jquery-1.7.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
+
+<script>
+function initMap() {
+  var harta = {
+    center:new google.maps.LatLng(44.383671,26.131421),
+    zoom:17,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("map"), harta);
+}
+google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
 </head>
 <body>
 <div class="bg">
@@ -23,7 +37,7 @@
         <li><a href="maintenance.html">Mentenanta</a></li>
         <li><a href="repair.html">Reparatii</a></li>
         <li><a href="price-list.html">Preturi</a></li>
-				<li><a href="price-list-piese.html">Piese</a></li>
+		<li><a href="price-list-piese.html">Piese</a></li>
         <li><a href="register.html">Inregistrare Masina</a></li>
         <li><a href="verifyCar.html">Status Masina</a></li>
         <li class="current"><a href="locations.html">Contact</a></li>
@@ -55,8 +69,8 @@
       </div>
       <div class="sub-page-right">
         <h2>Locatie</h2>
-        <div class="map">
-          <iframe src="https://www.google.ro/maps/place/%C8%98oseaua+Berceni+11,+Bucure%C8%99ti/@44.3907619,26.1246879,17z/data=!3m1!4b1!4m2!3m1!1s0x40b1fe69a23977c9:0x6abb9a9c5d5a8cc1"></iframe>
+        <div>
+          <div id="map" style="width:200px;height:250px;"></div>
         </div>
         <dl class="adr">
           <dt>Soseaua Berceni 11, <br>
