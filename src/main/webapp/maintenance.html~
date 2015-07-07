@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Service Auto | Maintenance</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+</head>
+<body>
+<div class="bg">
+  <header>
+    <div class="main wrap">
+      <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
+      <p>Soseaua Berceni 11, Sector 4, Bucuresti<span>+40 72 568 9256</span></p>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html" class="home"><img src="images/home.jpg" alt=""></a></li>
+        <li><a href="about.html">Despre noi</a></li>
+        <li class="current"><a href="maintenance.html">Mentenanta</a></li>
+        <li><a href="repair.html">Reparatii</a></li>
+        <li><a href="price-list.html">Preturi</a></li>
+		<li><a href="price-list-piese.html">Piese</a></li>
+        <li><a href="register.html">Inregistrare</a></li>
+        <li><a href="verifyCar.html">Status</a></li>
+        <li><a href="locations.html">Contact</a></li>
+      </ul>
+      <div class="clear"></div>
+    </nav>
+  </header>
+  <section id="content">
+    <div class="sub-page">
+      <div class="sub-page-left">
+        <h2 class="p4">Ingrijire Masina</h2>
+        <div class="box-6"> <img src="images/page3-img1.jpg" alt="" class="img-indent-2">
+          <div class="extra-wrap">
+            <p class="text-2">Lectia 1</p>
+            <a href="#" class="link">Schimbul anvelopelor de vara si verificarea lor</a>
+            <p class="upper">Nu este indicate folosirea anvelopelor de iarna la temperaturi mai mari de +7 C. Ele sunt fabricate dintr-un amestec moale care rezista mai bine la uzura si rodaj la temperaturi ridicate. Este mult mai bine sa schimbati rotile in intregime, decat sa inlaturati doar anvelopele de pe jante. Acest lucru reduce riscul de deteriorare.</p>
+          </div>
+        </div>
+        <div class="box-6 top-2"> <img src="images/page3-img2.jpg" alt="" class="img-indent-2">
+          <div class="extra-wrap">
+            <p class="text-2">Lectia 2</p>
+            <a href="#" class="link">Verificarea sistemului de franare</a>
+            <p class="upper">Pe tot parcursul iernii sistemul de franare este mult mai solicitat, astfel ca este necesara o verificare dupa perioada iernii. In special, trebuie verificat lichidul de frana, starea cablurilor, discurilor si placutelor. Sistemul de franare trebuie sa functioneze cu aceeasi intensitate pentru toate rotile.</p>
+          </div>
+        </div>
+        <div class="box-6 top-2"> <img src="images/page3-img3.jpg" alt="" class="img-indent-2">
+          <div class="extra-wrap">
+            <p class="text-2">Lectia 3</p>
+            <a href="#" class="link">Verificarea sasiului</a>
+            <p class="upper">Fiecare masina trebuie curatata si desarata dupa perioada iernii. Este important sa ne concentram asupra dedesubtului masinii si arcurilor rotilor, unde este depozitata cea mai multa cantitate de sare. Dupa spalare, trebuie verificata starea protectiei anti-coroziune aflata sub masina. Orice semn de deteriorare trebuie reparat.</p>
+          </div>
+        </div>
+        <div class="box-6 top-2"> <img src="images/page3-img4.jpg" alt="" class="img-indent-2">
+          <div class="extra-wrap">
+            <p class="text-2">Lectia 4</p>
+            <a href="#" class="link">Verificarea sistemului de racire</a>
+            <p class="upper">Sistemul de racire este testat serios in timpul sesonului principal. Este necesar sa fie verificat de un service autorizat Skoda.. Este important de verificat si etansarea, nivelul lichidului de racire, iar daca este nevoie, schimbati-l.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-page-right">
+        <div class="shadow box-7 bot-2">
+          <h2 class="p2">Mentenanta</h2>
+          <p class="text-3 p2">Foarte Important!</p>
+          <p class="upper"> Atentia regulata fata de masina dumneavoastra, reprezinta mobilitate si cel mai important, siguranta pentru partenerii de drum. In plus, prelungeste viata automobilului tau.</p>
+          <img src="images/page3-img5.jpg" alt="">
+          <p class="upper">Sfaturi: </p>
+          <ul class="list-1">
+            <li><a href="#">Verificarea uleiului</a></li>
+            <li><a href="#">Verificarea motorului</a></li>
+            <li><a href="#">Verificarea luminilor</a></li>
+            <li><a href="#">Verificarea aerului conditionat</a></li>
+            <li><a href="#">Verificarea sistemului de racire</a></li>
+          </ul>
+        </div>
+        <h2 class="p2">Garantie</h2>
+        <p class="upper">Oferim servicii de cea mai buna calitate pentru a usura mobilitatea dumneavoastra cu automobilul si a participantiilor la trafic.</p>
+        <a href="#" class="button-2 top-3">Citeste mai mult</a> </div>
+    </div>
+  </section>
+  <footer>Service Auto &copy; 2015 | <a href="#">Privacy Policy</a> | Design by: Secui Ana</footer>
+</div>
+</body>
+</html>

@@ -22,8 +22,8 @@
         <li><a href="about.html">Despre noi</a></li>
         <li><a href="maintenance.html">Mentenanta</a></li>
         <li><a href="repair.html">Reparatii</a></li>
-        <li><a href="price-list.html">Preturi</a></li>
-		<li class="current"><a href="price-list-piese.html">Piese</a></li>
+        <li class="current"><a href="price-list.html">Preturi</a></li>
+		<li><a href="price-list-piese.html">Piese</a></li>
         <li><a href="register.html">Inregistrare</a></li>
         <li><a href="verifyCar.html">Status</a></li>
         <li><a href="locations.html">Contact</a></li>
@@ -34,153 +34,139 @@
   <section id="content">
     <div class="sub-page">
       <div class="sub-page-left box-9">
-        <h2 class="p4">Lista Piese</h2>
+        <h2 class="p4">Lista Preturi</h2>
+		<p class="upper">Mecanica</p><br>
         <table>
           <tr>
-            <th>Categorie</th>
-            <th>Denumire</th>
+            <th>&nbsp;</th>
+            <th>Suboperatie</th>
+            <th>Durata</th>
             <th>Pret (RON)</th>
           </tr>
-		  <tr>
-			<td>Frana hidraulica</td>
-			<td>Placute frana disc</td>
-			<td>115</td>
+          <tr>
+            <td>Directie</td>
+			<td>Reparat casetă direcţie la banc</td>
+		 	<td>120 minute</td>
+			<td>24</td>
           </tr>
           <tr>
-            <td>Frana hidraulica</td>
-			<td>Senzor uzura</td>
-			<td>70</td>
+            <td>Chiulasa si accesorii</td>
+			<td>Înlocuirea garniturii capacului de chiulasa</td>
+			<td>35 minute</td>
+			<td>7</td>
           </tr>
           <tr>
-            <td>Frana hidraulica</td>
-			<td>Senzor ABS</td>
-			<td>230</td>
+            <td>Sistem de ungere</td>
+			<td>D/R si reparat pompa ulei pe autoturism</td>
+			<td>120 minute</td>
+			<td>24</td>
           </tr>
           <tr>
-            <td>Frana hidraulica</td>
-			<td>Disc frana</td>
-			<td>212</td>
+            <td>Sistem de distributie</td>
+			<td>D/R arbore cu came</td>
+			<td>365 minute</td>
+			<td>73</td>
           </tr>
           <tr>
-            <td>Frana hidraulica</td>
-			<td>Etrier frana</td>
-			<td>249</td>
-          </tr>
-          <tr>
-            <td>Aprindere motor</td>
-			<td>Bujie</td>						
+            <td>Frana de mana</td>
+			<td>Înlocuit cablu secundar frâna mâna</td>
+			<td>150 minute</td>
 			<td>30</td>
           </tr>
           <tr>
-            <td>Aprindere motor</td>
-			<td>Volanta</td>
-			<td>1370</td>
-          </tr>
-          <tr>
-            <td>Aprindere motor</td>
-            <td>Releu bujii</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>Directie</td>
-            <td>Bielete directie</td>
-            <td>135</td>
-          </tr>
-          <tr>
-            <td>Sistem de distributie</td>
-            <td>Curea distributie</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>Sistem de distributie</td>
-			<td>Lant distributie</td>
-			<td>60</td>
-          </tr>
-          <tr>
-            <td>Sistem de distributie</td>
-			<td>Amortizor vibratii</td>
-			<td>120</td>
-          </tr>
-          <tr>
-            <td>Directie</td>
-			<td>Bucsa Volan</td>
-			<td>10</td>
-          </tr>
-          <tr>
-            <td>Directie</td>
-			<td>Inel etansare caseta directie</td>
-			<td>11</td>
-          </tr>
-          <tr>
-            <td>Directie</td>
-			<td>Rezervor ulei servodirectie</td>
-			<td>43</td>
-          </tr>
-          <tr>
-            <td>Suspensie</td>
-			<td>Rulment sarcina amortizor</td>
-			<td>365</td>
-          </tr>
-          <tr>
-            <td>Ambreiaj</td>
-			<td>Arc rapel ambreiaj</td>
-			<td>45</td>
+            <td>Sistem de racire</td>
+			<td>Înlocuit motor monoventilator racire</td>
+			<td>60 minute</td>
+			<td>12</td>
           </tr>
           <tr>
             <td>Elemente motor</td>
-            <td>Filtru aer</td>            
-            <td>246</td>
+			<td>Înlocuirea unui set camasi pistoane pe autoturism</td>
+			<td>610 minute</td>
+			<td>122</td>
           </tr>
           <tr>
-            <td>Sistem racire</td>
-            <td>Radiator apa</td>
-            <td>289</td>
+            <td>Alternator</td>
+            <td>Reglat curea  alternator</td>
+            <td>12 minute</td>
+            <td>2.4</td>
           </tr>
           <tr>
-            <td>Sistem racire</td>
-            <td>Vas expansiune</td>
-            <td>155</td>
+            <td>Ambreiaj</td>
+            <td>Reglare cursa ambreiaj</td>
+            <td>10 minute</td>
+            <td>2</td>
+          </tr>
+        </table>
+		<br>
+		<p class="upper">Electrica</p><br>
+        <table>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Suboperatie</th>
+            <th>Durata</th>
+            <th>Pret (RON)</th>
+          </tr>
+          <tr>
+            <td>Aprindere Motor</td>
+			<td>Curatirea reglarea si controlul bujiilor la banc</td>
+		 	<td>46 minute</td>
+			<td>9.2</td>
+          </tr>
+          <tr>
+            <td>Aprindere Motor</td>
+			<td>Înlocuit contact pornire</td>
+			<td>30 minute</td>
+			<td>6</td>
+          </tr>
+          <tr>
+            <td>Aprindere Motor</td>
+			<td>Punerea la punct a aprinderii</td>
+			<td>55 minute</td>
+			<td>11</td>
+          </tr>
+          <tr>
+            <td>Aprindere Motor</td>
+			<td>D/R arbore cu came</td>
+			<td>365 minute</td>
+			<td>73</td>
           </tr>
           <tr>
             <td>Accesorii electrice</td>
-            <td>Sigurante</td>
-            <td>60</td>
+			<td>Montat alarma</td>
+			<td>20 minute</td>
+			<td>100</td>
           </tr>
           <tr>
             <td>Accesorii electrice</td>
-            <td>Claxon</td>
-            <td>178</td>
+			<td>Montat senzori parcare</td>
+			<td>20 minute</td>
+			<td>100</td>
           </tr>
           <tr>
-            <td>Revizie</td>
-            <td>Filtru polen</td>
-            <td>99</td>
+            <td>Accesorii electrice</td>
+			<td>Inlocuit far</td>
+			<td>6 minute</td>
+			<td>30</td>
           </tr>
           <tr>
-            <td>Sistem de ungere</td>
-            <td>Filtru ulei</td>
-            <td>99</td>
+            <td>Accesorii electrice</td>
+            <td>Montat casetofon</td>
+            <td>4 minute</td>
+            <td>20</td>
           </tr>
           <tr>
-            <td>Sistem de ungere</td>
-            <td>Filtru polen</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>Sistem de ungere</td>
-            <td>Pompa ulei</td>
-            <td>1749</td>
-          </tr>
-          <tr>
-            <td>Cutie viteze</td>
-            <td>Ulei cutie-1 litru</td>
-            <td>36</td>
+            <td>Accesorii electrice</td>
+            <td>Montat inchidere centralizata</td>
+            <td>20 minute</td>
+            <td>100</td>
           </tr>
         </table>
       </div>
       <div class="sub-page-right">
         <h2 class="p3">Cele mai solicitate piese</h2>
         <p class="upper"><a href="#" class="link">Placute frana disc</a><br></p>
+        <p class="upper"><a href="#" class="link">Contact pornire</a><br></p>
         <p class="upper"><a href="#" class="link">Bobina inductie</a><br></p>
         <p class="upper"><a href="#" class="link">Curea distributie</a><br></p>
         <p class="upper"><a href="#" class="link">Bucsa volan</a><br></p>

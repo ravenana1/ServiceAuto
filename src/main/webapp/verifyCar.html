@@ -41,17 +41,21 @@ $(document).ready(function(){
                     $("#h2").append('<br>');
                     $("#h2").append('<div id="date">Data Programare: '+ rez[0]['date'] +'</div>');
                     $("#h2").append('<br>');
+                    var pret = 0;
                     for(var i = 0; i < rez.length; i++){
                         $("#h2").append('<div id="stareMasina">Stare Masina: '+ rez[i]['carState'] +'</div>');
                         $("#h2").append('<br>');
-                        if(rez[i]["PretEstimat"] == null){
+						console.log("Stare: " + rez[i]['carState'] + " pret: " + rez[i]['estimatedPrice']);
+                        if(rez[i]["estimatedPrice"] == null && rez.length == 1){
                             $("#h2").append('<div id="pretEstimat">Masina tocmai inregistrata. Pretul estimat nu este calculat</div>');
                         }
-                        else{
-                            $("#h2").append('<div id="pretEstimat">Pret Estimat: '+ rez[i]['estimatedPrice'] +'</div>');
+                        else if(rez[i]["estimatedPrice"] != null){
+							pret += parseInt(rez[i]["estimatedPrice"]);
+						
                         }
-                        $("#h2").append('<br>');
+                        //$("#h2").append('<br>');
                     }
+                    $("#h2").append('<div id="pretEstimat">Pret Estimat: '+ pret +' RON</div>');
                 },
                 async: false
             });
